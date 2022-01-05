@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="text" type="id"/>
+    <item name="text4" type="id"/>
+    <item name="text3" type="id"/>
+    <item name="text_31" type="id"/>
+    <item name="text_32" type="id"/>
+    <item name="text_33" type="id"/>
+    <item name="text_51" type="id" />
+</resources>
