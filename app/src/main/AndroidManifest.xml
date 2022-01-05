@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lesson_2">
         <activity
+            android:name=".FiveActivityLinear2"
+            android:exported="false" />
+        <activity
+            android:name=".FourthActivityRelative"
+            android:exported="false" />
+        <activity
+            android:name=".TherdActivityLinear"
+            android:exported="false" />
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
