@@ -3,6 +3,7 @@
     package="com.example.lesson_2">
 
     <application
+        android:name=".PogodaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,25 +11,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lesson_2">
         <activity
+            android:name=".SevenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SixActivityCounter"
+            android:exported="false" />
+        <activity
             android:name=".FiveActivityLinear2"
             android:exported="false" />
         <activity
             android:name=".FourthActivityRelative"
             android:exported="false" />
         <activity
-            android:name=".TherdActivityLinear"
+            android:name=".ThirdActivityLinear"
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

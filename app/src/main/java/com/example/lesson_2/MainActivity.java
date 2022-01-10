@@ -1,18 +1,22 @@
 package com.example.lesson_2;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String RESURRECTION_KEY = "Resurrection key";
+    private static final int REQUEST_CODE = 1;
     final String TAG = "ACTIVITY_STATE";
 
     private View.OnClickListener listener2 = new View.OnClickListener() {
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener3 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, TherdActivityLinear.class);
+            Intent intent = new Intent(MainActivity.this, ThirdActivityLinear.class);
             startActivity(intent);
         }
     };
@@ -48,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private View.OnClickListener listener6 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, SixActivityCounter.class);
+            startActivity(intent);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +75,44 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button3).setOnClickListener(listener3);
         findViewById(R.id.button4).setOnClickListener(listener4);
         findViewById(R.id.button5).setOnClickListener(listener5);
+        findViewById(R.id.button6).setOnClickListener(listener6);
+
+        findViewById(R.id.button7).setOnClickListener(ign ->{
+            startActivity(new Intent(this, SevenActivity.class));
+        });
+
+        //Передаем имя города на другую активити
+        findViewById(R.id.button_send_name_of_city).setOnClickListener(ign ->{
+            EditText name_of_city = findViewById(R.id.edit_text_name_of_city);
+            String name = name_of_city.getText().toString();
+            startActivity(new Intent(this, SevenActivity.class).putExtra("CITY", name));
+        });
+
+//        findViewById(R.id.button_uri_ya).setOnClickListener(ing ->{
+//            Intent intent = new Intent(this, SevenActivity.class);
+//            intent.putExtra("CITY", "Moscow");
+//            startActivity(intent);
+//        });
+
+            //открыть камеру
+        findViewById(R.id.button_uri_ya).setOnClickListener(ing ->{
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            this.startActivityForResult(intent, REQUEST_CODE);
+        });
+
+            //открыть сайт
+            findViewById(R.id.button_uri_ya).setOnClickListener(ing ->{
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yandex.ru/"));
+            this.startActivity(intent);
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE){
+            Log.d(MainActivity.class.getName(), String.valueOf(requestCode));
+        }
     }
 
     @Override
@@ -125,3 +175,5 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, text);
     }
 }
+
+//1:33

@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class TherdActivityLinear extends AppCompatActivity {
+public class ThirdActivityLinear extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_therd_linear);
+        setContentView(R.layout.activity_third_linear);
         View.OnClickListener listener1 = new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TherdActivityLinear.this, MainActivity.class);
+                Intent intent = new Intent(ThirdActivityLinear.this, MainActivity.class);
                 startActivity(intent);
             }
         };
